@@ -27,28 +27,31 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    
     await client.connect();
- 
-  
+    app.get("/about", async (req, res) => {
+      res.send("This is my about route..... ");
+    });
 
 
-    app.listen(PORT, () => {
-      console.log(`API listening on PORT ${PORT} `)
+    app.listen(PORT,()=>{
+      console.log(`Server is running on port ${PORT}`)
     })
-    
-    app.get('/', (req, res) => {
-      res.send('Hey this is my API running 🥳')
-    })
-
-
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
   } finally {
-   
+    // Add cleanup or additional logic if needed
   }
 }
-run().catch(console.dir);
 
+
+
+
+
+
+
+
+run().catch(errors=>{console.log(errors)})
 
 
 
