@@ -1,11 +1,7 @@
 const express = require('express');
-
+const cors=require('cors')
 const app = express()
 const PORT = 8000
-
-
-const cors=require('cors')
-
 app.use(cors())
 app.use(express.json())
 
@@ -37,10 +33,13 @@ async function run() {
   
 
 
-    app.get("/home", async(req, res) => {
-       res.send("Welcome")
+    app.listen(PORT, () => {
+      console.log(`API listening on PORT ${PORT} `)
     })
-
+    
+    app.get('/', (req, res) => {
+      res.send('Hey this is my API running 🥳')
+    })
 
 
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -51,13 +50,7 @@ async function run() {
 run().catch(console.dir);
 
 
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
-})
 
-app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
-})
 
 
 // Export the Express API
