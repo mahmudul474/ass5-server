@@ -16,35 +16,35 @@ app.use(express.json())
 
 
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://ass55:wVOmdyiRnL6zlNRE@474.79d3jxt.mongodb.net/?retryWrites=true&w=majority";
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri = "mongodb+srv://ass55:wVOmdyiRnL6zlNRE@474.79d3jxt.mongodb.net/?retryWrites=true&w=majority";
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+// // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// const client = new MongoClient(uri, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   }
+// });
 
-async function run() {
-  try {
+// async function run() {
+//   try {
     
-    await client.connect();
+//     await client.connect();
  
-    app.get("/about",async (req,res)=>{
-      res.send("This is my about route..... ")
-    })
+//     app.get("/about",async (req,res)=>{
+//       res.send("This is my about route..... ")
+//     })
 
 
 
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+//   } finally {
    
-  }
-}
-run().catch(console.dir);
+//   }
+// }
+// run().catch(console.dir);
 
 
 app.listen(PORT, () => {
