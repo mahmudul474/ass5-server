@@ -34,8 +34,11 @@ async function run() {
     
     await client.connect();
  
-    app.get("/about",async (req,res)=>{
-      res.send("This is my about route..... ")
+  
+
+
+    app.get("/home", async(req, res) => {
+       res.send("Welcome")
     })
 
 
